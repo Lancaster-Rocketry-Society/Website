@@ -4,13 +4,13 @@ import './member.css'
 import Member from './member.jsx'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 
-import imgHamed from '../assets/Hamed_President.JPG'
-import imgAbhi from '../assets/Abhi_Vice President.JPG'
-import imgMustafa from '../assets/Mustafa_Team Principle.JPG'
-import imgIdris from '../assets/Idris_Head of Mechanical .JPG'
-import imgElectronics from '../assets/Head of Electronics.JPG'
-import imgJoed from '../assets/Joed_Head Of Chemical.JPG'
-import imgMorgan from '../assets/Morgan_Head of Software.png'
+import imgHamed from '../assets/Hamed_President.jpg'
+import imgAbhi from '../assets/Abhi_Vice_President.jpg'
+import imgMustafa from '../assets/Mustafa_Team_Principle.jpg'
+import imgIdris from '../assets/Idris_Head_of_Mechanical.jpg'
+import imgElectronics from '../assets/Head_of_Electronics.jpg'
+import imgJoed from '../assets/Joed_Head_Of_Chemical.jpg'
+import imgMorgan from '../assets/Morgan_Head_of_Software.png'
 
 /*
   ───────────────────────────────────────────
