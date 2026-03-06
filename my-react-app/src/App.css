@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Design tokens – shared across sections */
+:root {
+  --cohesive-bg: #0a0a1a;
+  --cohesive-bg-mid: #111128;
+  --cohesive-bg-end: #0d2137;
+  --cohesive-accent: #e67e22;
+  --cohesive-accent-glow: rgba(230, 126, 34, 0.25);
+  --cohesive-text: #ffffff;
+  --cohesive-text-muted: rgba(255, 255, 255, 0.6);
+  --cohesive-border: rgba(255, 255, 255, 0.08);
+  --cohesive-radius: 12px;
+  --cohesive-max-width: 1100px;
+  --font-sans: 'Poppins', sans-serif;
+  --font-display: 'Orbitron', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-sans);
+  color: var(--cohesive-text);
+  background: var(--cohesive-bg);
+}
+
