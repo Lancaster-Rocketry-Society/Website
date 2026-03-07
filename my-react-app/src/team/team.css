@@ -47,10 +47,18 @@
   box-sizing: border-box;
 }
 
-/* ===== Header ===== */
+/* ===== Header with scroll ===== */
 .team-header {
   text-align: center;
   margin-bottom: 48px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.team-header-revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .team-title {
@@ -71,7 +79,20 @@
   font-weight: 300;
 }
 
-/* ===== Filter Tabs ===== */
+/* === Card wrapper === */
+.team-card-wrapper {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1)
+              transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.team-card-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Filter Tabs =====
 .team-filters {
   display: flex;
   justify-content: center;
@@ -122,7 +143,7 @@
   padding: 1px 8px;
   border-radius: 20px;
   transition: all 0.25s ease;
-}
+} */
 
 /* ===== Members Grid ===== */
 .team-grid {
@@ -132,7 +153,7 @@
   justify-items: center;
 }
 
-/* ===== CTA Section ===== */
+/* ===== CTA Section with scroll reveal ===== */
 .team-cta {
   text-align: center;
   margin-top: 80px;
@@ -141,6 +162,14 @@
   border: 1px solid var(--border);
   border-radius: 20px;
   backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.team-cta-revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .team-cta-title {
@@ -157,6 +186,16 @@
   line-height: 1.6;
   max-width: 460px;
   margin: 0 auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-header,
+  .team-card-wrapper,
+  .tram-cta {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* ===== Responsive ===== */

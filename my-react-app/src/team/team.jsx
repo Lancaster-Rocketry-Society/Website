@@ -2,6 +2,7 @@ import React from 'react'
 import './team.css'
 import './member.css'
 import Member from './member.jsx'
+import useScrollReveal from '../hooks/useScrollReveal.js'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 
 import imgHamed from '../assets/Hamed_President.jpg'
@@ -53,12 +54,12 @@ const TEAM_DATA = [
     linkedin: '#',
   },
   {
-    name: "Morgan O'carroll",
+    name: "Morgan O'Carroll",
     role: 'Head of SoftWare',
     group: 'exec',
     image: imgMorgan,
     description: 'Comms, minutes, and coordinating with the union and faculty.',
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/morganocarroll',
   },
   {
     name: 'Idris Udin',
@@ -100,12 +101,38 @@ const TEAM_DATA = [
   },
 ]
 
+function AnimatedMember({ member, index }) {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.1 })
+
+  return (
+    <div
+      ref={ref}
+      className={`team-card-wrapper ${isVisible ? 'team-card-revealed' : ''}`}
+      style={{ transitionDelay: `${(index & 3) * 100}ms`}}
+    >
+      <Member
+        name={member.name}
+        role={member.role}
+        image={member.image}
+        linkedin={member.linkedin}
+        description={member.description}
+      />
+    </div>
+  )
+}
+
 export default function Team() {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollReveal({ threshold: 0.3})
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollReveal({ threshold: 0.3 })
+
   return (
     <div className="team-page">
       <div className="team-wrapper">
         {/* Header */}
-        <div className="team-header">
+        <div 
+          ref={headerRef}
+          className={`team-header ${headerVisible ? 'team-header-revealed' : ''}`}
+        >
           <h1 className="team-title">Meet the Team</h1>
           <p className="team-subtitle">
             The people behind Lancaster University Rocketry Society — building, launching, and reaching for the sky.
@@ -115,19 +142,15 @@ export default function Team() {
         {/* Members Grid */}
         <div className="team-grid">
           {TEAM_DATA.map((member, idx) => (
-            <Member
-              key={member.name + idx}
-              name={member.name}
-              role={member.role}
-              image={member.image}
-              linkedin={member.linkedin}
-              description={member.description}
-            />
+            <AnimatedMember key={member.name + idx} member={member} index={idx} />
           ))}
         </div>
 
         {/* Join CTA */}
-        <div className="team-cta">
+        <div
+          ref={ref}
+          className={`team-cta ${ctaVisible ? 'team-cta-revealed' : ''}`}
+        >
           <h2 className="team-cta-title">Want to join the team?</h2>
           <p className="team-cta-text">
             Committee applications open at the start of each academic year. Follow us on social media to stay updated.
