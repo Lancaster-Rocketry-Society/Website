@@ -12,7 +12,7 @@ export default function useCountUp(end, start = false, duration = 1400) {
             return
         }
 
-        let ref
+        let raf
         const startTime = performance.now()
 
         function tick(now) {

@@ -9,7 +9,7 @@ export default function Home({ hideNav }) {
 
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 100)
-    return () => clearRimeout(timer)
+    return () => clearTimeout(timer)
   }, [])
 
   return (

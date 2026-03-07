@@ -148,7 +148,7 @@ export default function Team() {
 
         {/* Join CTA */}
         <div
-          ref={ref}
+          ref={ctaRef}
           className={`team-cta ${ctaVisible ? 'team-cta-revealed' : ''}`}
         >
           <h2 className="team-cta-title">Want to join the team?</h2>
