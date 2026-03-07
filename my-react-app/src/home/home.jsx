@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import  "./home.css" 
 import Btn from '../button/btn.jsx'
 import Nav from '../navbar/nav.jsx'
+
+
 export default function Home({ hideNav }) {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoaded(true), 100)
+    return () => clearRimeout(timer)
+  }, [])
+
   return (
     <div>
       <div className='home_wallpaper'>
@@ -11,8 +20,8 @@ export default function Home({ hideNav }) {
             <Nav />
           </div>
         )}
-        <div className='Home-text'>
-          <div className='h'>
+        <div className={`Home-text ${loaded ? 'hero-loaded' : ''}`}>
+          <div className='h hero-anim hero-anim-1'>
             Lancaster University <br /> Rocketry Society
           </div>
           <div className='intro'>
@@ -23,7 +32,7 @@ export default function Home({ hideNav }) {
             text="Join LURS"
             href="https://lancastersu.co.uk/groups/lancaster-university-rocketry-society"
           />
-          <div className='home-socials'>
+          <div className='home-socials hero-anim hero-anim-4'>
             <ul className='home-social-list'>
               <li>
                 <a className='home-social github' href="https://github.com/Lancaster-Rocketry-Society" aria-label="GitHub">

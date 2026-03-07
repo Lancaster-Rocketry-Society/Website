@@ -11,6 +11,7 @@ body, html {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   min-height: 100vh;
   width: 100%;
 }
@@ -21,6 +22,26 @@ body, html {
   padding-right: 32px;
   max-width: var(--cohesive-max-width, 1100px);
   box-sizing: border-box;
+}
+
+.hero-anim {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hero-loaded .hero-anim-1 { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+.hero-loaded .hero-anim-2 { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
+.hero-loaded .hero-anim-3 { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
+.hero-loaded .hero-anim-4 { opacity: 1; transform: translateY(0); transition-delay: 0.55s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 .h {
@@ -113,4 +134,10 @@ body, html {
   border-color: rgba(0, 119, 181, 0.5);
   color: #0077b5;
   box-shadow: 0 4px 16px rgba(0, 119, 181, 0.25);
+}
+
+@media (max-width: 768px) {
+  .home_wallpaper {
+    background-attachment: scroll;
+  }
 }
