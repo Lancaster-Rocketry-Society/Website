@@ -57,6 +57,38 @@
   margin-top: 24px;
 }
 
+.landing-section-home::after,
+.landing-section-stats::after,
+.landing-section-team::after {
+  content: '';
+  display: block;
+  height: 120px;
+  margin-top: -120px;
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.landing-section-home::after {
+  background: linear-gradient(to bottom, transparent, var(--cohesive-bg, #0a0a1a));
+}
+
+.landing-section-stats::after {
+  background: linear-gradient(
+    to bottom,
+    var(--cohesive-bg, #0a0a1a),
+    var(--cohesive-bg-mid, #111128)
+  );
+}
+
+.landing-section-team::after {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--cohesive-bg-mid, #111128)
+  );
+}
+
 /* Footer with social icons */
 .landing-footer {
   background: var(--cohesive-bg, #0a0a1a);
