@@ -1,11 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 .navbar-shell {
-  max-width: 1100px;
+  max-width: var(--cohesive-max-width, 1100px);
   margin: 0 auto;
-  padding: 24px 24px 0;
+  padding: 0;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  transition: padding 0.3s ease;
 }
+
+/* -- Logo -- */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-radius: 50%;
+}
+
+.nav-logo:hover .nav-logo-img {
+  transform: scale(1.05);
+  filter: brightness(1.15);
+}
+
+/* -- Links -- */
 
 .nav-links {
   display: flex;
@@ -25,6 +51,7 @@
   letter-spacing: 0.4px;
   padding: 6px 0;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
