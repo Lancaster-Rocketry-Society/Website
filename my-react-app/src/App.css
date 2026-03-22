@@ -1,19 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap');
 
-/* Design tokens – shared across sections */
 :root {
-  --cohesive-bg: #0a0a1a;
-  --cohesive-bg-mid: #111128;
-  --cohesive-bg-end: #0d2137;
-  --cohesive-accent: #e67e22;
-  --cohesive-accent-glow: rgba(230, 126, 34, 0.25);
-  --cohesive-text: #ffffff;
-  --cohesive-text-muted: rgba(255, 255, 255, 0.6);
-  --cohesive-border: rgba(255, 255, 255, 0.08);
-  --cohesive-radius: 12px;
-  --cohesive-max-width: 1100px;
-  --font-sans: 'Poppins', sans-serif;
-  --font-display: 'Orbitron', sans-serif;
+  --navy: #0b1526;
+  --navy-mid: #112240;
+  --navy-light: #1a3355;
+  --cream: #f0ece2;
+  --cream-dark: #d4cfc4;
+  --red: #d62828;
+  --red-dark: #a71e1e;
+  --red-light: #e8534f;
+  --blue-flag: #3a6ea5;
+  --blue-light: #5a8ec5;
+  --silver: #8892a4;
+  --silver-light: #b0b8c8;
+  --white: #ffffff;
+
+  --bg: var(--navy);
+  --text: var(--cream);
+  --text-muted: var(--silver);
+  --accent: var(--red);
+  --border: rgba(240, 236, 226, 0.12);
+  --border-strong: rgba(240, 236, 226, 0.25);
+
+  --font-display: 'Space Mono', serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-body: 'Space Mono', sans-serif;
+
+  --max-width: 1060px;
+  --section-pad: 100px 24px;
+  --grid-line: rgba(240, 236, 226, 0.045);
+  --grid-size: 60px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -21,23 +43,81 @@ html {
   scroll-padding-top: 72px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-}
-
-html, body, #root {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  overflow-x: hidden;
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
   -webkit-font-smoothing: antialiased;
-  font-family: var(--font-sans);
-  color: var(--cohesive-text);
-  background: var(--cohesive-bg);
+  overflow-x: hidden;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
 }
 
+/* Custom scrollbar — retro instrument panel style */
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 9px,
+      rgba(240, 236, 226, 0.06) 9px,
+      rgba(240, 236, 226, 0.06) 10px
+    ),
+    var(--navy);
+  border-left: 2px solid var(--red);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    var(--red-dark),
+    var(--red),
+    var(--red-dark)
+  );
+  border: 2px solid var(--navy);
+  border-left: 3px solid var(--navy);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    to bottom,
+    var(--red),
+    var(--red-light),
+    var(--red)
+  );
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+  display: block;
+  height: 6px;
+  background: var(--red);
+  border-left: 2px solid var(--navy);
+}
+
+/* Firefox */
+html {
+  scrollbar-width: auto;
+  scrollbar-color: var(--red) var(--navy);
+}
+
+::selection {
+  background: var(--red);
+  color: var(--cream);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
